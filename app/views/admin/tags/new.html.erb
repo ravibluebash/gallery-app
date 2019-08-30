@@ -1,0 +1,11 @@
+<div class='container'>
+<%= link_to 'Back', admin_albums_path,class:"btn btn-outline-primary btn-pill px-3 " ,style:"float: right " %>
+<div class="form-group">
+<h4>Add a tag:</h4>
+<%= form_with(model: [:admin, @album, @album.tags.build ], local: true, method: :post) do |form| %>
+  <%= render partial: 'form', locals: { f: form } %>
+<%end %>
+  <br>
+</div>
+</div>
+

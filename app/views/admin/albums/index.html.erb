@@ -1,0 +1,134 @@
+<body>
+    <nav class="navbar navbar-dark top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-3 mt-3" href="#"><strong><h3><div class="alert alert-secondary" role="alert">Gallery App</div></h3></strong></a>
+      <%# <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> %>
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#"><strong></strong></a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+    <%# <%# <%= search_form_for @q do |f| %>    
+    <%# <%= paginate @albums%> 
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-dark sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  <h5 style="color:white;">Dashboard</h5> <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  <h5 style="color:white;">Album</h5>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  <h5 style="color:white;">Tags</h5>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="users"></span>
+                  <h5 style="color:white;">Users</h5>
+                </a>
+              </li>  
+              <li class="nav-item">
+                <a><h5 style="color:red;"><%= link_to 'Profile', 
+                edit_user_registration_path, 
+                :class => 'nav-link',
+                 style:"padding: 15px; color:white;"  %></h5>
+                </a>
+
+              <li class='nav-item'>
+              <a><h5>
+              <%= link_to "Sign Out", 
+                  destroy_user_session_path, 
+                 :class => 'navbar-link',
+                 style:"padding: 15px; color:white;"  %>
+              </h5></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+  <main role="main" class="col-md-10 ml-sm-auto col-lg-10 px-4">
+  <%# <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">               %>
+  <div class="align-items-center pt-3 pb-2 mb-3 border-bottom">              
+ <div class="shadow-lg p-3 mb-5 bg-gray rounded">
+  <h3 >Listing albums
+  <%= link_to 'Back', admin_albums_path ,style:"float: right;" ,class:"btn btn-outline-primary btn-pill px-3  "%>
+  <%= link_to 'New album', new_admin_album_path ,class:"btn btn-outline-success btn-pill px-3 mr-2 ",style:"float: right; padding: '10px'" %>
+  </h3>
+  <p style="margin-bottom:1.0em">
+  </p>
+  <p style="margin-right:0.25em">
+  <p style="margin-bottom:1.0em"></p>
+  <br>
+  </p>
+  <br>
+    <form>
+    <% if (!@search.blank?) %>
+    <%= search_form_for [:admin , @search], url: admin_albums_path , html: { method: :post } do |f| %>
+    <%= f.label :'Search by Tag(s) Name' %>
+    <%= f.text_field :tags_name_cont , :class=>"form-control" %><br />
+     <%# <%= f.label :albums_tags_name %>
+    <%# <%= f.text_field :q_albums_path %>
+    <%= f.submit  :class => 'btn btn-outline-secondary'%>
+    <% end %>
+    <%end%>
+    </form>
+    <br>
+<% if @albums.any? %>
+  <% @albums.in_groups_of(3, false) do |albums|  %>
+    <div class="card-deck">
+      <% albums.each do |album| %>
+        <div class="card">
+          <%= link_to admin_album_path(album) do %>
+            <%if !album.images.present? %>
+              <%= image_tag ("dummy.png"), class: "card-img-top" %>
+            <% else %>
+              <%= image_tag (rails_blob_path(album.images.first)), class:"card-img-top"  %>
+            <% end %> 
+          <% end %>
+          <div class="card-body">      
+            <h5 class="card-title"><%= album.title %></h5>
+            <p class="card-text"><%= album.content %></p>
+            <div class="alert alert-dark" role="alert">
+            <p class="card-text"><small class="text-muted"><%= link_to ' Edit ', 
+                edit_admin_album_path(album) , 
+                :style => "color:black;"
+                 %>
+                <%= link_to "Delete", 
+                                    admin_album_path(album), 
+                                    :style => "color:black;",
+                                    method: :delete , 
+                                    data: { confirm: 'Are you sure?' }, 
+                                    no_text: true %>                
+               <%= link_to 'Add Tags' ,  new_admin_album_tag_path(album), 
+                                    :style => "color:black;"%>           
+                </small>                            
+            </p>
+            </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <br>
+     <% end%>
+<%else%>
+   <h4><strong>No album found</strong></h4>
+<%end%>
+
+  <%= paginate @albums%>   
+<%# <%= paginate @albums %>  
+<%# <%= paginate @albums>%</div> %>
+</div>
+</div>
+</div>
+

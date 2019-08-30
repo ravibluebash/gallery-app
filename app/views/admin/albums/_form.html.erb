@@ -1,0 +1,21 @@
+<div class='container'>
+<%# <%= form_with scope: :admin, url: admin_albums_path, local: true do |form| %> 
+  <%= hidden_field :album_id, :value => @album.id %>
+   <div class='form-group'>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title ,:class=>"form-control"  %>
+    </p>
+   </div>
+   <div class='form-group'>
+    <p>
+      <%= f.label :content %><br>
+      <%= f.text_area :content ,:class=>"form-control"  %>
+    </p>
+    </div>
+    <br>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.file_field :images, id:"file-input" ,multiple: true, accept:'image/*', :style=>"margin:15px;" %>
+    <br>
+    <%= f.submit :class=>"btn btn-outline-success btn-pill px-4"%>
+</div>

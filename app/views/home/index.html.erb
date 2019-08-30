@@ -1,0 +1,157 @@
+<%# <nav class="navbar navbar-dark bg-dark shadow">
+<span class="navbar-brand mb-0 h1"><h1 style="text-align:center">Rails Gallery Application .</h1></span>
+</nav>
+
+
+<nav class="navbar navbar-dark bg-dark shadow">
+<span class="navbar-brand mb-0 h1"><h3 >Nothing but the best….</h3></span>
+</nav>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+<div class="row"> 
+  <div class="column">
+  <%= image_tag ("1.jpg"), class: "img-responsive" %>
+  <%# <%= image_tag ("1.jpg"), class: "img-responsive" %> 
+  <%# </div> %>
+  <%# </div> %>
+
+<%# </body> %>
+<%# <br> %>
+<%# <div class='container'> %>
+
+<%# <%= link_to "Log In ", user_session_path ,:class => "btn btn-secondary btn-lg"  %> 
+
+
+<%# <button type="button" class="btn btn-secondary btn-lg">Login</button> %>
+<%# </div> %> 
+
+
+
+<%# <body :background =>   <%= image_tag ("back.jpg"), class: "img-responsive" %> 
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Album example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+      
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
+  </head>
+  <body > 
+
+    <header>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">About</h4>
+          <p class="text-muted">This is the login page for rails gallery app . </p>
+        </div>
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Proceed</h4>
+          <ul class="list-unstyled">
+          
+  
+
+            <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> </li>
+            <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <li>  </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+      <a href="#" class="navbar-brand d-flex align-items-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>Album</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+  </body>
+
+    <title>Cover Template · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/cover/">
+
+    <!-- Bootstrap core CSS -->
+<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="cover.css" rel="stylesheet">
+  </head>
+  <body class="text-center" :background =>   <%= image_tag ("back.jpg"), class: "img-responsive" %>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
+  <header class="masthead mb-auto">
+    <div class="inner">
+      <h3 class="masthead-brand">Welcome</h3>
+    </div>
+  </header>
+
+  <main role="main" class="inner cover">
+    <h1 class="cover-heading">Rails Gallery App</h1>
+    <p class="lead">This app can be used to create update and delete your photo albums along with tag functionality that supports search</p>
+    <p class="lead">
+<%= link_to "Log In ", new_user_session_path ,:class => "btn btn-secondary btn-lg"  %>
+    </p>
+  </main>
+</div>
+</body>
+
+</html>
+

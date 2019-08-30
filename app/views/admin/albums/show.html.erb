@@ -1,0 +1,70 @@
+<div class='container'>
+<%= link_to 'Edit', edit_admin_album_path(@album),style:"float: right;" ,class:"btn btn-outline-success btn-pill px-4  "%> 
+<%= link_to 'Back', admin_albums_path ,style:"float: right;" ,class:"btn btn-outline-primary btn-pill px-3  "%>
+<div style="text-align: left">
+<p>
+  <h5><strong>Title:</strong></h5>
+  <br>
+  <h6 class="font-weight-light "><%= @album.try(:title) %></h6>
+</p>
+
+<p>
+  <h5><strong>Description:</strong></h5>
+  <br>
+  <h6 class="font-weight-light "><%= @album.try(:content) %></h6>
+</p>
+</div>
+</div>
+  <%# <body>  
+      <div class="row"> 
+          <div class="column">
+          <% @album.images.each do |image| %>
+            <%# <%= image_tag(image, :size => "300x280", :class => "img-responsive" )   %> 
+          <%# <% end %> 
+          <%# <br> %>
+          <%# </div> %>
+          
+      <%# </div> %>
+  <%# </body>     %> 
+<div class="container">
+  <h4 class="font-weight-light text-center text-lg-left mt-4 mb-0">Images</h1>
+  <hr class="mt-2 mb-5">
+  <div class="row text-center text-lg-left">
+    <% @album.images.each do |image| %>
+    <div class="col-lg-3 col-md-4 col-6">
+      <a href="#" class="d-block mb-4 h-100">
+            <%= image_tag(image, :class => "img-fluid img-thumbnail", :alt =>'' )   %>
+               <%# <%= link_to 'Delete' ,albums_path(@album) %> 
+              
+              <%= link_to "Delete", 
+                                    # remove_image(image_id), 
+                                    # {controller: "albums", action: "remove_image"},
+                                   remove_image_admin_album_url(@album, :image_id => image.id),
+                                    method: :delete , 
+                                    data: { confirm: 'Are you sure?' }
+                                     %>
+               <%#to write delete method for photo%> 
+          </a>
+    </div>
+    <% end %>  
+    </div>
+    </div>
+  <div class='container' style="margin-top: 5em;">  
+  <strong><h5>Tags</h5></strong>
+     <div class='row'>
+        <% @album.tags.each do |tag| %>  
+      <div class='col-1 text-center'>
+    
+        <p> <%= link_to tag.name , edit_admin_album_tag_path(@album,tag)%>  </p>
+      </div>
+        <% end %>
+    
+      <%# <%= @album.tags.join(',')  %>   
+    </div>
+        <%if tag.id.present?%>
+          <%# <%= link_to 'Edit', edit_album_tag_path(@album,tag) %> 
+        <%end%>    
+  </div>
+  </div>
+ 
+
